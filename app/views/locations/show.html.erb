@@ -1,11 +1,22 @@
 <h1><%= @location.name %></h1>
-<p><%= @location.days %></p>
+<p><%= @location.days %> Day Stop</p>
+<%= @location.address.street %>
+<%= @location.address.city %>
+<br/>
+<%= @location.address.state %>
+<br/>
+<%= @location.address.zip %>
+ 
+<br/>
+<br/>
 
 <%= link_to 'Edit Location', edit_trip_location_path([@trip, @location]) %>
 <br/>
 <%= link_to 'Delete Location', [@trip, @location], method: :delete %>
 <br/>
-<%= link_to 'Back to Location', trip_locations_path(@trip) %>
+<%= link_to 'Back to Location', trip_location_path(@trip) %>
+<br />
+<%= link_to 'Edit Address', edit_location_address_path(@location) %>
 
 
 

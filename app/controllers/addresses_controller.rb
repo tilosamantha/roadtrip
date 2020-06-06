@@ -3,7 +3,7 @@ class AddressesController < ApplicationController
   before_action :set_address, only: [:show, :edit, :update, :destroy]
 
   def index
-    @addresses = @location.addresses
+    @addresses = Address.all
   end
 
   def show

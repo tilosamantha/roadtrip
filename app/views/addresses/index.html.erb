@@ -1,5 +1,20 @@
-<h1>All Addresses</h1>
+<h1>Addresses</h1>
 
 <% @addresses.each do |address| %>
-  <%= link_to address.location, [@address, @locations] %>
+
+  <%= link_to address.location, [@location, @address] %>
 <% end %>
+
+
+
+
+<h1><%= @trip.name %> Trip Stops</h1>
+ <ul>
+  <% @locations.each do |location| %>
+    <li>
+      <%= link_to location.name, [ @trip, location ]%>
+    </li>
+    <% end %>
+ </ul>
+
+ <%= link_to 'Create new location', new_trip_location_path(@trip) %>
