@@ -1,0 +1,10 @@
+<h1>Add Location</h1>
+<hr />
+<%= form_for [@trip, @location] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true, placeholder: 'Trip Location' %>
+  <%= f.label :days %>
+  <%= f.text_field :days, required: true, placeholder: 'Days' %>
+
+  <%= f.submit nil, class: 'ui blue button' %>
+<% end %>

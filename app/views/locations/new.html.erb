@@ -1,2 +1,17 @@
-<h1>Locations#new</h1>
-<p>Find me in app/views/locations/new.html.erb</p>
+<h1>Add Location</h1>
+<hr/>
+<%= form_with(model: [@trip, @location], local: true, class: 'ui form') do |f| %>
+  
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, autofocus: true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :days %>
+    <%= f.text_field :days, required: true, autofocus: true %>
+  </div>
+
+
+  <%= f.submit nil, class: 'ui green button' %>
+<% end %>

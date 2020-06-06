@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
-  before_action :set_address, only: [:show, :edit, :destroy, :update]
   before_action :set_location
+  before_action :set_address, only: [:show, :edit, :update, :destroy]
 
   def index
     @addresses = @location.addresses
@@ -10,12 +10,12 @@ class AddressesController < ApplicationController
   end
 
   def new
-    @address = @location.address.new
+    @address = @location.addresses.new
   #  render partial: 'form'
   end
 
   def create
-    @address = @address.location.new(address_params)
+    @address = @location.addresses.new(address_params)
     if @address.save
       redirect_to [@location, @address]
     else
@@ -42,11 +42,11 @@ class AddressesController < ApplicationController
 
   private
     def address_params
-      params.require(:address).permit(:street, :city, :state, :zip, :location_id)
+      params.require(:address).permit(:street, :city, :state, :zip)
     end
 
   def set_address
-    @address = Address.find(params[:location_id])
+    @address = Address.find(params[:id])
   end
 
   def set_location
